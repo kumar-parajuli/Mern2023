@@ -40,30 +40,56 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const userExist = await User.findOne({ email });
-    console.log(userExist);
-    if (!userExist) {
-      // return res.status(400).json({ messag: "Invalid Credentials" });
-      next(error);
-    }
+    console.log(email, password);
+    const userExist = await User.findOne({ email: email });
+    console.log(userExist, "userExist");
 
-    // const user = await bcrypt.compare(password, userExist.password);
-
-    const user = await userExist.comparePassword(password);
-
-    if (user) {
-      res.status(200).json({
-        msg: "Login success",
-        token: await userExist.generateToken(),
-        userId: userExist._id.toString(),
-      });
+    if (userExist) {
+      //check pass
+      const user = await userExist.comparePassword(password);
+      if (user) {
+        console.log("kumar here");
+        res.status(200).json({
+          msg: "Login success",
+          token: await userExist.generateToken(),
+          userId: userExist._id.toString(),
+        });
+      } else {
+        res.status(400).json({ error: "password doesn't match" });
+      }
     } else {
-      res.status(401).json({ msg: "Invalid email or password" });
+      res.status(400).json({ error: "User doesn't exist" });
     }
   } catch (error) {
-    // res.status(500).json("internal server error");
-    next(error);
+    res.status(400).json({ error });
   }
-};
 
+  // if (!userExist) {
+
+  //   return res.status(400).json({ messag: "Invalid Credentials" });
+  //   // next(error);
+  // }
+
+  // const user = await bcrypt.compare(password, userExist.password);
+
+  //     const user = await userExist.comparePassword(password);
+  // console.log(user,"user test")
+  //     if (user) {
+  //       console.log("kumar here")
+  //       res.status(200).json({
+  //         msg: "Login success",
+  //         token: await userExist.generateToken(),
+  //         userId: userExist._id.toString(),
+  //       });
+  //     }
+  //     if(!user){
+  //       console.log("invalid password")
+  //       res.status(401).json({ msg: "Invalid email or password" });
+  //     }
+  //   } catch (error) {
+  //     res.status(500).json({msg:"internal server error"});
+  //     // next(error);
+  //   }
+  // };
+};
 module.exports = { home, register, login };

@@ -4,7 +4,6 @@ const app = express();
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
 const errorMiddleware = require("./middlewares/error-middleware");
-
 const connectDb = require("./utils/db");
 
 app.use(express.json());

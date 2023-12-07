@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-const Signup = () => {
+const URL = "http://localhost:5000/api/auth/register";
+const Register = () => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -19,12 +20,25 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
     alert("form submit success", user);
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      if (response.ok) {
+        setUser({ username: "", email: "", phone: "", password: "" });
+      }
+    } catch (error) {
+      console.error("register", error);
+    }
   };
-
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
       <div style={{ marginBottom: "20px" }}>for png image</div>
@@ -145,4 +159,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;

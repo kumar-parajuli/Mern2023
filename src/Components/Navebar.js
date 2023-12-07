@@ -45,8 +45,11 @@ const Navebar = () => {
           <NavLink to="/service" style={navLinkStyle}>
             Service
           </NavLink>
-          <NavLink to="/signup" style={navLinkStyle}>
-            Signup
+          <NavLink to="/register" style={navLinkStyle}>
+            Register
+          </NavLink>
+          <NavLink to="/login" style={navLinkStyle}>
+            Login
           </NavLink>
         </nav>
       </div>

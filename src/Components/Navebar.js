@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { useAuth } from "../store/auth";
 const Navebar = () => {
+  const { isLoggedIn } = useAuth();
   const navStyle = {
     display: "flex",
     justifyContent: "space-between",
@@ -45,12 +46,20 @@ const Navebar = () => {
           <NavLink to="/service" style={navLinkStyle}>
             Service
           </NavLink>
-          <NavLink to="/register" style={navLinkStyle}>
-            Register
-          </NavLink>
-          <NavLink to="/login" style={navLinkStyle}>
-            Login
-          </NavLink>
+          {isLoggedIn ? (
+            <NavLink to="/logout" style={navLinkStyle}>
+              Logout
+            </NavLink>
+          ) : (
+            <>
+              <NavLink to="/register" style={navLinkStyle}>
+                Register
+              </NavLink>
+              <NavLink to="/login" style={navLinkStyle}>
+                Login
+              </NavLink>
+            </>
+          )}
         </nav>
       </div>
     </header>

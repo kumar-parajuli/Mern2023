@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 const URL = "http://localhost:5000/api/auth/register";
 const Register = () => {
   const [user, setUser] = useState({
@@ -8,7 +9,8 @@ const Register = () => {
     phone: "",
     password: "",
   });
-
+  const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -22,8 +24,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
-    alert("form submit success", user);
     try {
       const response = await fetch(URL, {
         method: "POST",
@@ -33,15 +33,27 @@ const Register = () => {
         body: JSON.stringify(user),
       });
       if (response.ok) {
+        const res_data = await response.json();
+        console.log("response from server", res_data);
+        storeTokenInLS(res_data.token); //store in localstorage as on argument
         setUser({ username: "", email: "", phone: "", password: "" });
+        navigate("/login");
       }
+      console.log(response);
     } catch (error) {
       console.error("register", error);
     }
   };
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <div style={{ marginBottom: "20px" }}>for png image</div>
+      <div style={{ marginBottom: "20px" }}>
+        {/* <img
+          src="/images/register.png"
+          alt="coding together"
+          width="400"
+          height="500"
+        /> */}
+      </div>
       <div
         style={{
           maxWidth: "400px",

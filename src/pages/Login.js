@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 const URL = "http://localhost:5000/api/auth/login";
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -33,6 +35,8 @@ const Login = () => {
       console.log("from login form", response);
       if (response.ok) {
         alert("Login success", user);
+        const res_data = await response.json();
+        storeTokenInLS(res_data.token); //store in localstorage as on argument
 
         setUser({ email: "", password: "" });
         navigate("/");
@@ -48,7 +52,16 @@ const Login = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <div style={{ marginBottom: "20px" }}>for png image</div>
+      <div style={{ marginBottom: "20px" }}>
+        {/* <div className="flex">
+          <img
+            src="/images/login.png"
+            alt="coding together"
+            width="400"
+            height="500"
+          />
+        </div> */}
+      </div>
       <div
         style={{
           maxWidth: "400px",

@@ -7,6 +7,7 @@ import Service from "./pages/Service";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navebar from "./Components/Navebar";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/service" element={<Service />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );

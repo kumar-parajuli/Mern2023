@@ -63,6 +63,11 @@ const login = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error });
   }
+  //to send user data  -user Logic
+  const user = async (req, res) => {
+    try {
+    } catch (error) {}
+  };
 
   // if (!userExist) {
 

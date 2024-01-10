@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
-const Navebar = () => {
+
+const Navbar = () => {
   const { isLoggedIn } = useAuth();
+
   const navStyle = {
     display: "flex",
     justifyContent: "space-between",
@@ -23,6 +25,13 @@ const Navebar = () => {
     textDecoration: "none",
     color: "#fff",
     margin: "0 1rem",
+    padding: "0.5rem 1rem",
+    borderRadius: "5px",
+    transition: "background 0.3s ease",
+  };
+
+  const activeStyle = {
+    background: "#555",
   };
 
   return (
@@ -33,37 +42,71 @@ const Navebar = () => {
             LOGO
           </NavLink>
         </div>
-        <nav style={{ display: "flex", justifyContent: "space-end" }}>
-          <NavLink to="/" style={navLinkStyle}>
-            Home
-          </NavLink>
-          <NavLink to="/about" style={navLinkStyle}>
-            About
-          </NavLink>
-          <NavLink to="/contact" style={navLinkStyle}>
-            Contact
-          </NavLink>
-          <NavLink to="/service" style={navLinkStyle}>
-            Service
-          </NavLink>
-          {isLoggedIn ? (
-            <NavLink to="/logout" style={navLinkStyle}>
-              Logout
-            </NavLink>
-          ) : (
-            <>
-              <NavLink to="/register" style={navLinkStyle}>
-                Register
+        <nav style={{ display: "flex", justifyContent: "flex-end" }}>
+          <ul style={{ listStyle: "none", display: "flex", gap: "1rem" }}>
+            <li>
+              <NavLink to="/" style={navLinkStyle} activeStyle={activeStyle}>
+                Home
               </NavLink>
-              <NavLink to="/login" style={navLinkStyle}>
-                Login
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                style={navLinkStyle}
+                activeStyle={activeStyle}>
+                About
               </NavLink>
-            </>
-          )}
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                style={navLinkStyle}
+                activeStyle={activeStyle}>
+                Contact
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/service"
+                style={navLinkStyle}
+                activeStyle={activeStyle}>
+                Service
+              </NavLink>
+            </li>
+            {isLoggedIn ? (
+              <li>
+                <NavLink
+                  to="/logout"
+                  style={navLinkStyle}
+                  activeStyle={activeStyle}>
+                  Logout
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <NavLink
+                    to="/register"
+                    style={navLinkStyle}
+                    activeStyle={activeStyle}>
+                    Register
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/login"
+                    style={navLinkStyle}
+                    activeStyle={activeStyle}>
+                    Login
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
         </nav>
       </div>
     </header>
   );
 };
 
-export default Navebar;
+export default Navbar;

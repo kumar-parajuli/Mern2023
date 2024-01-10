@@ -12,8 +12,8 @@ const Login = () => {
 
   const navigate = useNavigate();
   const { storeTokenInLS } = useAuth();
+  // let handle the input field value
   const handleInput = (e) => {
-    console.log(e);
     let name = e.target.name;
     let value = e.target.value;
 
@@ -22,6 +22,7 @@ const Login = () => {
       [name]: value,
     });
   };
+  // let handle the form submission
 
   const handleSubmit = async (e) => {
     e.preventDefault();

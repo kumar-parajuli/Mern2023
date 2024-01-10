@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navebar from "./Components/Navebar";
 import Logout from "./pages/Logout";
+import { Error } from "./pages/Error";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

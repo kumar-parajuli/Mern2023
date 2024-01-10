@@ -42,6 +42,8 @@ const Register = () => {
       console.log(response);
     } catch (error) {
       console.error("register", error);
+      // Display the server response to the user
+      alert(`Registration failed: ${error.message}`);
     }
   };
   return (

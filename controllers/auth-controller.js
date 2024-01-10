@@ -15,23 +15,27 @@ const register = async (req, res) => {
     // console.log(req.body);
     const { username, email, phone, password } = req.body;
 
-    //to check user email is already exix or not
+    // Check if user email already exists
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      return res.status(400).json({ msg: "already email exist" });
+      return res.status(400).json({ error: "Email already exists" });
     }
 
     const userCreated = await User.create({ username, email, phone, password });
-
+    console.log("User created:", userCreated);
     res.status(201).json({
-      msg: "resgistration success",
+      msg: "Registration success",
       token: await userCreated.generateToken(),
       userId: userCreated._id.toString(),
     });
   } catch (error) {
-    // res.status(500).json("internal server error");
-    //using error handler
+    console.error("Error in registration:", error);
+    res.status(500).json({
+      error: "Internal Server Error",
+      extraDetails: error.message,
+    });
+    console.log(req.body);
     next(error);
   }
 };
@@ -48,7 +52,6 @@ const login = async (req, res) => {
       //check pass
       const user = await userExist.comparePassword(password);
       if (user) {
-        console.log("kumar here");
         res.status(200).json({
           msg: "Login success",
           token: await userExist.generateToken(),
@@ -63,38 +66,16 @@ const login = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error });
   }
-  //to send user data  -user Logic
-  const user = async (req, res) => {
-    try {
-    } catch (error) {}
-  };
-
-  // if (!userExist) {
-
-  //   return res.status(400).json({ messag: "Invalid Credentials" });
-  //   // next(error);
-  // }
-
-  // const user = await bcrypt.compare(password, userExist.password);
-
-  //     const user = await userExist.comparePassword(password);
-  // console.log(user,"user test")
-  //     if (user) {
-  //       console.log("kumar here")
-  //       res.status(200).json({
-  //         msg: "Login success",
-  //         token: await userExist.generateToken(),
-  //         userId: userExist._id.toString(),
-  //       });
-  //     }
-  //     if(!user){
-  //       console.log("invalid password")
-  //       res.status(401).json({ msg: "Invalid email or password" });
-  //     }
-  //   } catch (error) {
-  //     res.status(500).json({msg:"internal server error"});
-  //     // next(error);
-  //   }
-  // };
 };
-module.exports = { home, register, login };
+//to send user data  -user Logic
+const user = async (req, res) => {
+  try {
+    const userData = req.user;
+    console.log(userData);
+    return res.status(200).json({ userData });
+  } catch (error) {
+    console.log(`error from the user route ${error}`);
+  }
+};
+
+module.exports = { home, register, login, user };

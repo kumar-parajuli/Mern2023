@@ -11,7 +11,7 @@ const connectDb = require("./utils/db");
 const corsOptions = {
   origin: "http://localhost:3000",
   method: "GET,POST,PUT,DELETE,PATCH,HEAD",
-  Credentials: true,
+  credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));

@@ -3,10 +3,11 @@ const errorMiddleware = (err, req, res, next) => {
 
   const message = err.message || "BACKEND ERROR";
   const extraDetails = err.extraDetails || "Error from Backend";
-  console.error(
-    `[${req.method}]  ${req.path} >> StatusCode:: ${status}, Message:: ${extraDetails} `,
-    err
-  );
+
+  // console.error(
+  //   `[${req.method}]  ${req.path} >> StatusCode:: ${status}, Message:: ${extraDetails} `,
+  //   err
+  // );
 
   return res.status(status).json({ message, extraDetails });
 };

@@ -12,30 +12,25 @@ const home = async (req, res) => {
 //register part
 const register = async (req, res) => {
   try {
-    // console.log(req.body);
+    console.log(req.body);
     const { username, email, phone, password } = req.body;
 
     // Check if user email already exists
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      return res.status(400).json({ error: "Email already exists" });
+      return res.status(400).json({ message: "Email already exists" });
     }
 
     const userCreated = await User.create({ username, email, phone, password });
-    console.log("User created:", userCreated);
     res.status(201).json({
       msg: "Registration success",
       token: await userCreated.generateToken(),
       userId: userCreated._id.toString(),
     });
   } catch (error) {
-    console.error("Error in registration:", error);
-    res.status(500).json({
-      error: "Internal Server Error",
-      extraDetails: error.message,
-    });
     console.log(req.body);
+
     next(error);
   }
 };

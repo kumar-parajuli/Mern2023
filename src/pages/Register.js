@@ -32,30 +32,24 @@ const Register = () => {
         },
         body: JSON.stringify(user),
       });
+      const res_data = await response.json();
+      console.log("response from server", res_data.extraDetails);
       if (response.ok) {
-        const res_data = await response.json();
-        console.log("response from server", res_data);
         storeTokenInLS(res_data.token); //store in localstorage as on argument
         setUser({ username: "", email: "", phone: "", password: "" });
         navigate("/login");
+      } else {
+        alert(
+          res_data.extraDetails ? res_data.extraDetails : res_data.message
+        );
       }
-      console.log(response);
     } catch (error) {
-      console.error("register", error);
-      // Display the server response to the user
-      alert(`Registration failed: ${error.message}`);
+      console.log("register", error);
     }
   };
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
-      <div style={{ marginBottom: "20px" }}>
-        {/* <img
-          src="/images/register.png"
-          alt="coding together"
-          width="400"
-          height="500"
-        /> */}
-      </div>
+      <div style={{ marginBottom: "20px" }}></div>
       <div
         style={{
           maxWidth: "400px",

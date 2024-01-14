@@ -39,7 +39,7 @@ const Navbar = () => {
       <div style={navStyle}>
         <div>
           <NavLink to="/" style={logoStyle}>
-            LOGO
+            Kumar Dev
           </NavLink>
         </div>
         <nav style={{ display: "flex", justifyContent: "flex-end" }}>

@@ -240,6 +240,70 @@ button {
     }
   }
 }
+/* RegistrationForm.css */
+
+section {
+  background-color: #f4f4f4;
+  padding: 40px 0;
+}
+
+.main-heading {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-two-cols {
+  grid-template-columns: 1fr 1fr;
+}
+
+.registration-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.registration-form {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* contact section */
 .section-contact {
   & .contact-content {
@@ -280,4 +344,53 @@ button {
       padding: 0.4rem 0.6rem;
     }
   }
+}
+/* Service.css */
+
+.section-services {
+  padding: 40px 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-heading {
+  font-size: 6rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.card-details {
+  text-align: center;
+}
+
+.grid-two-card {
+  display: grid;
+  gap: 10px;
 }

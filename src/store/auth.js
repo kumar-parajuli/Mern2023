@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   //reuseable function
   const storeTokenInLS = (serverToken) => {
+    setToken(serverToken); //remove the problem while loin page should be refress
     return localStorage.setItem("token", serverToken);
   };
   //showing enable if user is login dissable if user logout

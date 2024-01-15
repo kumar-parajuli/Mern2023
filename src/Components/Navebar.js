@@ -11,7 +11,8 @@ const Navbar = () => {
     alignItems: "center",
     padding: "1rem",
     background: "#333",
-    color: "#fff",
+
+    color: "#c9c2c2",
   };
 
   const logoStyle = {

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+
+//url for fatching
 const URL = "http://localhost:5000/api/auth/login";
 
 const Login = () => {
@@ -34,15 +37,16 @@ const Login = () => {
         body: JSON.stringify(user),
       });
       console.log("from login form", response);
+      const res_data = await response.json();
       if (response.ok) {
-        alert("Login success", user);
-        const res_data = await response.json();
         storeTokenInLS(res_data.token); //store in localstorage as on argument
-
         setUser({ email: "", password: "" });
+        toast.success("Login success");
         navigate("/");
       } else {
-        alert("Invalid credentials");
+        toast.error(
+          res_data.extraDetails ? res_data.extraDetails : res_data.message
+        );
 
         console.log("Invalid credentials");
       }

@@ -3,7 +3,7 @@ import { useAuth } from "../store/auth";
 const Service = () => {
   const { services } = useAuth();
 
-  console.log(services);
+  // console.log(services);
   return (
     <section className="section-services">
       <div className="container">

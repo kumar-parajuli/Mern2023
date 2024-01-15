@@ -9,6 +9,9 @@ import Register from "./pages/Register";
 import Navebar from "./Components/Navebar";
 import Logout from "./pages/Logout";
 import { Error } from "./pages/Error";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminUsers from "./pages/AdminUsers";
+import AdminContacts from "./pages/AdminContacts";
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<Error />} />
+        <Route path="admin" element={<AdminLayout />}>
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="contacts" element={<AdminContacts />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
   const [services, setServices] = useState("");
-
+  const authorizationToken = `Bearer ${token}`;
   //reuseable function
   const storeTokenInLS = (serverToken) => {
     setToken(serverToken); //remove the problem while loin page should be refress
@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     LogoutUser,
     user,
     services,
+    authorizationToken,
   };
 
   //JWT AUTHENTICATION -- TO GET THE CURRENTLY LOGIN USER DATA
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       const response = await fetch("http://localhost:5000/api/auth/user", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: authorizationToken,
         },
       });
       if (response.ok) {
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setServices(data);
-        console.log(data);
+        // console.log(data);
       }
     } catch (error) {
       console.log(`Services frontend error:${error}`);

@@ -27,8 +27,6 @@ body {
   min-height: 100vh;
 }
 
-/*?  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical */
-
 h1 {
   font-size: 5.4rem;
   line-height: 1.1;
@@ -114,6 +112,7 @@ button {
 /***** Hero Section *****/
 
 .section-hero {
+  background-color: black;
   & .grid {
     align-items: center;
   }
@@ -247,7 +246,7 @@ button {
 /* RegistrationForm.css */
 
 section {
-  background-color: #f4f4f4;
+  background-color: black;
   /* background-color: #c9c2c2; */
 
   padding: 40px 0;
@@ -255,7 +254,7 @@ section {
 
 .main-heading {
   font-size: 2rem;
-  color: #333;
+  color: #c9c2c2;
   text-align: center;
 }
 
@@ -282,7 +281,7 @@ section {
 
 .registration-form {
   /* background-color: #fff; */
-  background-color: #f4f4f4;
+  background-color: black;
 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -292,7 +291,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
+  color: #c9c2c2;
 }
 
 input {
@@ -305,7 +304,7 @@ input {
 
 button {
   background-color: #007bff;
-  color: #151414;
+  color: #c9c2c2;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -314,11 +313,13 @@ button {
 
 /* contact section */
 .section-contact {
+  background-color: black;
   & .contact-content {
     padding: 0;
 
     & h1 {
       margin-bottom: 3.2rem;
+      color: #c9c9c9;
     }
   }
   & .container {
@@ -341,6 +342,8 @@ button {
       gap: 3.2rem;
     }
     & label {
+      color: #c9c9c9;
+
       display: block;
       margin-bottom: 1.2rem;
       text-transform: capitalize;
@@ -357,7 +360,7 @@ button {
 
 .section-services {
   padding: 40px 0;
-  background-color: #f4f4f4;
+  background-color: black;
 }
 
 .container {
@@ -367,7 +370,7 @@ button {
 
 .main-heading {
   font-size: 6rem;
-  color: #333;
+  color: #c9c9c9;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -401,4 +404,109 @@ button {
 .grid-two-card {
   display: grid;
   gap: 10px;
+}
+
+/* Admin user .css */
+
+.admin-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.update-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+}
+/* AdminLayout.css (or your preferred file name) */
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+header {
+  background-color: #070707;
+  color: #3807f8;
+  /* background-color: #333;
+  color: #fff; */
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.side-menu {
+  background-color: #f4f4f4;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+  background-color: #ddd;
+}
+
+.side-menu .active {
+  background-color: #ddd;
+  color: #333;
 }

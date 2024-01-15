@@ -24,7 +24,7 @@ const signupSchema = z.object({
     .max(1024, "Password can't be greater than 1024 characters"),
 });
 
-//login schema
+//login schema    or z.object=== loginSchema.Extend
 const loginSchema = z.object({
   email: z
     .string({ required_error: "Email is required" })

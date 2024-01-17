@@ -5,8 +5,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: black;
+  /* background: black; */
   color: #c9c2c2;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .logo-brand {

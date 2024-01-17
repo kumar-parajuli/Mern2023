@@ -1,0 +1,76 @@
+/* AdminLayout.css (or your preferred file name) */
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+header {
+  background-color: #070707;
+  color: #3807f8;
+  /* background-color: #333;
+  color: #fff; */
+  padding: 10px 0;
+  /* box-shadow: 0 0 10px rgb(255, 255, 255); */
+}
+
+.container-admin {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgb(255, 255, 255); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.6rem 43rem;
+  padding: 3rem;
+  background: black;
+  color: #c9c2c2;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.logo-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.side-menu {
+  background-color: black;
+  color: aliceblue;
+  display: grid;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #c9c2c2;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+  background-color: #f1e97a;
+}
+
+.side-menu .active {
+  background-color: #ddd;
+  color: #333;
+}
+.menu-header {
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+  color: #c9c2c2;
+}

@@ -47,8 +47,6 @@ const Login = () => {
         toast.error(
           res_data.extraDetails ? res_data.extraDetails : res_data.message
         );
-
-        console.log("Invalid credentials");
       }
     } catch (error) {
       console.log(error);

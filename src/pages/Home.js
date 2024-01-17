@@ -1,4 +1,5 @@
 import React from "react";
+import Analytics from "../Components/Analytics";
 
 // import { Analytics } from "../components/Analytics";
 
@@ -41,7 +42,7 @@ const Home = () => {
       </main>
 
       {/* 2nd section  */}
-      {/* <Analytics /> */}
+      <Analytics />
 
       {/* 3rd section  */}
       <section className="section-hero">

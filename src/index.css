@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: Urbanist, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
+  background-color: black;
 }
 
 :root {
@@ -214,35 +215,6 @@ button {
 
 /***** End Hero  *****/
 
-/***** analytics Section *****/
-
-.section-analytics {
-  margin: 9.6rem 0;
-
-  & .container {
-    background-color: var(--bg-color);
-    border-radius: 1rem;
-  }
-
-  & .grid {
-    color: var(--dark-color);
-
-    & .div1 {
-      text-align: center;
-      border-right: 0.2rem solid var(--dark-color);
-
-      &:last-child {
-        border: none;
-      }
-      & h2 {
-        font-size: 4.8rem;
-      }
-      & p {
-        text-transform: capitalize;
-      }
-    }
-  }
-}
 /* RegistrationForm.css */
 
 section {
@@ -283,8 +255,12 @@ section {
   /* background-color: #fff; */
   background-color: black;
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   padding: 20px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  /* text-align: center;
+      height: 61em;
+      width: 41em; */
 }
 
 label {
@@ -300,6 +276,7 @@ input {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: aqua;
 }
 
 button {
@@ -320,10 +297,12 @@ button {
     & h1 {
       margin-bottom: 3.2rem;
       color: #c9c9c9;
+      margin-left: 2rem;
     }
   }
   & .container {
-    padding-top: 3.2rem;
+    padding-top: 2.2rem;
+    margin-bottom: 0rem;
   }
   & .contact-img {
     display: flex;
@@ -340,6 +319,10 @@ button {
       display: flex;
       flex-direction: column;
       gap: 3.2rem;
+      box-shadow: 0 0 10px rgb(255, 255, 255);
+      text-align: center;
+      height: 61em;
+      width: 41em;
     }
     & label {
       color: #c9c9c9;
@@ -347,12 +330,14 @@ button {
       display: block;
       margin-bottom: 1.2rem;
       text-transform: capitalize;
+      margin-top: 1.5rem;
     }
 
     & input,
     textarea {
       width: 80%;
       padding: 0.4rem 0.6rem;
+      color: aqua;
     }
   }
 }
@@ -411,6 +396,7 @@ button {
 .admin-section {
   padding: 20px;
   text-align: center;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 .table-container {
@@ -430,8 +416,7 @@ td {
   padding: 10px;
   text-align: left;
   color: #c9c2c2;
-      font-size: medium;
-
+  font-size: medium;
 }
 
 th {
@@ -456,70 +441,4 @@ button {
   background-color: #f44336;
   color: #fff;
   border: none;
-}
-/* AdminLayout.css (or your preferred file name) */
-
-body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-}
-
-header {
-  background-color: #070707;
-  color: #3807f8;
-  /* background-color: #333;
-  color: #fff; */
-  padding: 10px 0;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.side-menu {
-  background-color: black;
-  color: aliceblue;
-  display: grid;
-}
-
-.side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu ul li {
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: #c9c2c2;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.side-menu a:hover {
-  background-color: #f1e97a;
-}
-
-.side-menu .active {
-  background-color: #ddd;
-  color: #333;
-}
-.menu-header {
-  font-size: 5.4rem;
-  line-height: 1.1;
-  font-weight: bold;
-  color: #c9c2c2;
 }

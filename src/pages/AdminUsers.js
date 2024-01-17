@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
-import Link from "react-router-dom"
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
@@ -35,8 +37,11 @@ const AdminUsers = () => {
       );
       const data = await response.json();
       console.log(`users after delete: ${data}`);
-      if(response.ok){
+      if (response.ok) {
         getAllUsersData();
+        toast.success("User Delete Successful");
+      } else {
+        toast.error("Opps Try Again!");
       }
     } catch (error) {
       console.log(error);
@@ -67,7 +72,11 @@ const AdminUsers = () => {
                 <td>{curUser.email}</td>
                 <td>{curUser.phone}</td>
                 <td>
-                  <Link to={`/admin/users/${curUser._id}/edit`} className="update-button">Update</Link>
+                  <Link
+                    to={`/admin/users/${curUser._id}/edit`}
+                    className="update-button">
+                    Update
+                  </Link>
                 </td>
                 <td>
                   <button

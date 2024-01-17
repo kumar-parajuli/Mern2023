@@ -1,0 +1,46 @@
+/***** analytics Section *****/
+
+.section-analytics {
+  margin: 1.6rem 41rem;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+
+  & .container {
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+  }
+
+  & .grid {
+    align-items: center;
+
+    color: var(--dark-color);
+
+    & .div1 {
+      text-align: center;
+      border-right: 0.2rem solid var(--dark-color);
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 1.56;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+    color: #c9c2c2;
+    text-transform: capitalize;
+    margin-left: 7rem;
+  }
+  h2 {
+    display: block;
+    font-size: 4.8rem;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: #c9c2c2;
+    margin-left: 7rem;
+  }
+}

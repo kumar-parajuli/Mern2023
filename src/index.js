@@ -5,6 +5,7 @@ import App from "./App";
 import { AuthProvider } from "./store/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Components/Footer/Footer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
@@ -23,6 +24,7 @@ root.render(
         theme="colored"
         bodyClassName="toastBody"
       />
+      <Footer />
     </React.StrictMode>
   </AuthProvider>
 );

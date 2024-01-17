@@ -7,11 +7,21 @@ const router = express.Router();
 router.route("/users").get(authMiddleware, adminController.getAllUsers);
 router.route("/contacts").get(authMiddleware, adminController.getAllContacts);
 
-//get all user id
+// routes of get all user id
 router.route("/users/:id").get(authMiddleware, adminController.getUserById);
 
-//deleate the user route
+//route of update the user id
+router
+  .route("/users/update/:id")
+  .patch(authMiddleware, adminController.updateUserById);
+
+//route of deleate the user route
 router
   .route("/users/delete/:id")
   .delete(authMiddleware, adminMiddleware, adminController.deleteUserById);
+
+  //route of delete theContacts route
+router
+  .route("/contacts/delete/:id")
+  .delete(authMiddleware, adminMiddleware, adminController.deleteContactById);
 module.exports = router;

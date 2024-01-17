@@ -385,8 +385,8 @@ button {
 }
 
 .card {
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: black;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
   padding: 20px;
 }
 
@@ -429,10 +429,15 @@ td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
+  color: #c9c2c2;
+      font-size: medium;
+
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: black;
+  color: #99b9ff;
+  font-size: 2rem;
 }
 
 button {
@@ -479,7 +484,9 @@ header {
 }
 
 .side-menu {
-  background-color: #f4f4f4;
+  background-color: black;
+  color: aliceblue;
+  display: grid;
 }
 
 .side-menu ul {
@@ -495,7 +502,7 @@ header {
 
 .side-menu a {
   text-decoration: none;
-  color: #333;
+  color: #c9c2c2;
   font-weight: bold;
   padding: 10px;
   border-radius: 5px;
@@ -503,10 +510,16 @@ header {
 }
 
 .side-menu a:hover {
-  background-color: #ddd;
+  background-color: #f1e97a;
 }
 
 .side-menu .active {
   background-color: #ddd;
   color: #333;
+}
+.menu-header {
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+  color: #c9c2c2;
 }

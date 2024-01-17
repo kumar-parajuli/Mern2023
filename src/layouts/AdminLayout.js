@@ -7,7 +7,7 @@ const AdminLayout = () => {
       <header>
         <div className="container">
           <div className="logo-brand">
-            <NavLink to="/">Kumar Dev</NavLink>
+            <NavLink to="/">Admin Dasboard</NavLink>
           </div>
         </div>
       </header>

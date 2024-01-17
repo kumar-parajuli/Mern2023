@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
+import Link from "react-router-dom"
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
@@ -13,20 +14,41 @@ const AdminUsers = () => {
       });
       const data = await response.json();
 
-      console.log(`users ${data}`);
       setUsers(data);
+      console.log(`users ${data}`);
     } catch (error) {
       console.log(error);
     }
   };
 
+  //deleate the user
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(`users after delete: ${data}`);
+      if(response.ok){
+        getAllUsersData();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getAllUsersData();
   }, []);
 
   return (
     <section className="admin-section">
-      <h1>Admin User Panel</h1>
+      <h1 className={"menu-header"}>Admin User Panel</h1>
       <div className="table-container">
         <table>
           <thead>
@@ -45,10 +67,14 @@ const AdminUsers = () => {
                 <td>{curUser.email}</td>
                 <td>{curUser.phone}</td>
                 <td>
-                  <button className="update-button">Update</button>
+                  <Link to={`/admin/users/${curUser._id}/edit`} className="update-button">Update</Link>
                 </td>
                 <td>
-                  <button className="delete-button">Delete</button>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteUser(curUser._id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
